@@ -41,7 +41,9 @@
                                     <legend>Please Login</legend>
                                     <!-- use param.error assuming FormLoginConfigurer#failureUrl contains the query parameter error -->
                                     <div th:if="${param.error != null}">
-                                        Failed to login.
+                                        <div class="alert alert-danger col-xs-offset-1 col-xs-10">
+                                            Invalid username and password.
+                                        </div>
                                         <div th:if="${SPRING_SECURITY_LAST_EXCEPTION != null}">
                                             Reason: <span
                                                 th:text="${SPRING_SECURITY_LAST_EXCEPTION.message}"></span>
@@ -49,7 +51,11 @@
                                     </div>
 
                                     <!-- the configured LogoutConfigurer#logoutSuccessUrl is /login?logout and contains the query param logout -->
-                                    <div th:if="${param.logout != null}">You have been logged out.</div>
+                                    <div th:if="${param.logout != null}">
+                                        <div class="alert alert-success col-xs-offset-1 col-xs-10">
+                                            You have been logged out.
+                                        </div>
+                                    </div>
                             </div>
                         </div>
                     </div>

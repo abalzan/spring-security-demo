@@ -27,4 +27,27 @@ public class DashBoardController {
         return "dashboard";
     }
 
+
+    @GetMapping("/leaders")
+    public String showLeaders (@AuthenticationPrincipal User user, ModelMap model) {
+
+        model.addAttribute("user", user);
+
+        //Should work just for users with ROLE_ADMIN
+//        adminService.getAllUserAccounts();
+
+        return "leaders";
+    }
+
+    @GetMapping("/systems")
+    public String showSystem (@AuthenticationPrincipal User user, ModelMap model) {
+
+        model.addAttribute("user", user);
+
+        //Should work just for users with ROLE_ADMIN
+//        adminService.getAllUserAccounts();
+
+        return "systems";
+    }
+
 }

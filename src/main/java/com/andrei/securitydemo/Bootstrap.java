@@ -23,9 +23,55 @@ public class Bootstrap implements CommandLineRunner {
         user.setPassword("$2a$10$/DvrrGIOxHsYb4q9PR8no.M/LitaWEhkdgRyRMqZySRwBBqqyOMHK");
 
         Authorities userAuthorities = new Authorities();
-        userAuthorities.setAuthority("ROLE_USER");
+        userAuthorities.setAuthority("ROLE_EMPLOYEE");
         userAuthorities.setUser(user);
         Set<Authorities> authorities = new LinkedHashSet<>();
+        authorities.add(userAuthorities);
+
+        user.setAuthorities(authorities);
+        userRepository.save(user);
+
+
+        user = new User();
+        user.setUsername("mary@test.com");
+        user.setPassword("$2a$10$/DvrrGIOxHsYb4q9PR8no.M/LitaWEhkdgRyRMqZySRwBBqqyOMHK");
+
+        userAuthorities = new Authorities();
+        userAuthorities.setAuthority("ROLE_EMPLOYEE");
+        userAuthorities.setUser(user);
+        authorities = new LinkedHashSet<>();
+        authorities.add(userAuthorities);
+
+        user.setAuthorities(authorities);
+        userRepository.save(user);
+
+        userAuthorities = new Authorities();
+        userAuthorities.setAuthority("ROLE_MANAGER");
+        userAuthorities.setUser(user);
+        authorities = new LinkedHashSet<>();
+        authorities.add(userAuthorities);
+
+        user.setAuthorities(authorities);
+        userRepository.save(user);
+
+
+        user = new User();
+        user.setUsername("susan@test.com");
+        user.setPassword("$2a$10$/DvrrGIOxHsYb4q9PR8no.M/LitaWEhkdgRyRMqZySRwBBqqyOMHK");
+
+        userAuthorities = new Authorities();
+        userAuthorities.setAuthority("ROLE_EMPLOYEE");
+        userAuthorities.setUser(user);
+        authorities = new LinkedHashSet<>();
+        authorities.add(userAuthorities);
+
+        user.setAuthorities(authorities);
+        userRepository.save(user);
+
+        userAuthorities = new Authorities();
+        userAuthorities.setAuthority("ROLE_ADMIN");
+        userAuthorities.setUser(user);
+        authorities = new LinkedHashSet<>();
         authorities.add(userAuthorities);
 
         user.setAuthorities(authorities);
